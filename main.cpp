@@ -14,7 +14,7 @@
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(640, 800),
-							"Blue Jump",
+							"BlueJump",
 							sf::Style::Close | sf::Style::Titlebar
 							);
 
