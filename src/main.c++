@@ -1,16 +1,14 @@
-/*!****************************************************************************
+/*!*****************************************************************************
 * \brief Jamper Game
 * \author Vitaliy Zinchenko <zinc.vitaliy@gmail.com>
 * \date 14.04.2016
 * \copyright LGPLv3.
-******************************************************************************/
-
+*******************************************************************************/
 
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-
-// ****************************************************************************
+//------------------------------------------------------------------------------
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(640, 800),
@@ -149,7 +147,7 @@ int main()
 	        // Logic
 	        if (clock.getElapsedTime().asMilliseconds() > 5) {
 	            character.move(characterRun, 0);
-	
+
 	            if (character.getPosition().y > 300 || characterGravity > 0) {
 	                character.move(0, characterGravity);
 	            }
@@ -161,23 +159,23 @@ int main()
 	                score += 1;
 	                textScore.setString("Score: " + std::to_string(score));
 	            }
-	
-	
-	
+
+
+
 	            if (isPressA) characterRun -= 0.1f;
 	            if (isPressD) characterRun += 0.1f;
-	
+
 	            if (characterRun > 0.0001f) { characterRun -= 0.01f; }
 	            else if (characterRun < -0.0001f) { characterRun += 0.01f; }
 	            else { characterRun = 0.0f; }
-	
+
 	            characterGravity += 0.1f;
-	
+
 	            sf::Vector2f charLeftPos = character.getPosition();
 	            charLeftPos.x -= 44;
 	            sf::Vector2f charRightPos = character.getPosition();
 	            charRightPos.x += 44;
-	
+
 	            // Platform jump
 	            for (auto& platform : platforms) {
 	                if (platform.getGlobalBounds().contains(charLeftPos)) {
@@ -189,12 +187,12 @@ int main()
 	                    break;
 	                }
 	            }
-	
+
 	            // Spring jump
 	            if (spring.getGlobalBounds().contains(character.getPosition())) {
 	                if (characterGravity > 0) characterGravity = -20;
 	            }
-	
+
 	            // Update platforms
 	            for (auto& platform : platforms) {
 	                if (platform.getPosition().y > 800) {
@@ -202,19 +200,19 @@ int main()
 	                    platform.move(0, -1100);
 	                }
 	            }
-	
+
 	            if (spring.getPosition().y > 800) {
 	                spring.setPosition(platforms[1].getPosition().x + 20,
 	                                    platforms[1].getPosition().y - 20);
 	            }
-	
+
 	            // Left
 	            if (character.getPosition().x < -50) { character.move(690, 0); }
 	            else if (character.getPosition().x > 690) { character.move(-690, 0); }
-	
+
 	            // Down
 	            if (character.getPosition().y > 850) { isRun = false; }
-	
+
 	            clock.restart();
 	        }
         }
