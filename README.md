@@ -9,7 +9,6 @@ For build need run makefile
 
 `$ make`
 
-For Linux users need install [sfml](http://www.sfml-dev.org/index.php "Simple and Fast Multimedia Library") libs.
-*Example for Ubuntu:* 
+For Linux users need install [sfml](http://www.sfml-dev.org/index.php "Simple and Fast Multimedia Library") libs. Example for Ubuntu:
 
 `$ sudo apt install libsfml-dev`
