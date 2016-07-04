@@ -2,7 +2,7 @@
 * \brief Jamper Game
 * \author Vitaliy Zinchenko <zinc.vitaliy@gmail.com>
 * \date 14.04.2016
-* \copyright LGPLv3.
+* \copyright MIT.
 *******************************************************************************/
 
 #include <SFML/Graphics.hpp>
